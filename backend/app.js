@@ -4,8 +4,11 @@ const express = require('express');
 //ici on 'appelle' express
 const app = express();
 
-//ici on importe notre router
+//ici on importe notre routage des sauces
 const saucesRoutes = require('./routes/sauces');
+
+//ici on importe notre routage des utilisateurs
+const userRoutes = require('./routes/user');
 
 //ici on importe Mongoose 
 // c'est un package qui facilite les interactions avec notre base de données MongoDB
@@ -34,6 +37,9 @@ app.use((req, res, next) => {
 
 // ici on indique que le chemin /api/sauces sera la racine dans sauces.js du dossier routes
 app.use('/api/sauces', saucesRoutes)
+
+//ici on indique que le chemin /api/auth sera la racine dans user.js du dossier routes
+app.use('/api/auth', userRoutes);
 
 //ici on exporte express pour pouvoir s'en servir dans d'autres fichiers
 module.exports = app;
