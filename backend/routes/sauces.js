@@ -25,7 +25,5 @@ router.get('/', auth, sauceCtrl.getAllSauces);
 // ici on cherche a n'afficher qu'une seule sauce
 router.get('/:id', auth, sauceCtrl.getOneSauce);
 
-
-
 // on exporte ces routers
 module.exports = router;
