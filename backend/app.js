@@ -10,11 +10,14 @@ const saucesRoutes = require('./routes/sauces');
 //ici on importe notre routage des utilisateurs
 const userRoutes = require('./routes/user');
 
+// on importe le module qui nous permet d'indiquer des chemins de fichier
+const path = require('path');
+
 //ici on importe Mongoose 
 // c'est un package qui facilite les interactions avec notre base de données MongoDB
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb+srv://jerry:OnlyP11quante@piiquante.87znc.mongodb.net/piiquante?retryWrites=true&w=majority',
+mongoose.connect('mongodb+srv://mongocherry:M0ng0database@piiquante.87znc.mongodb.net/piiquante?retryWrites=true&w=majority',
     {
         useNewUrlParser: true,
         useUnifiedTopology: true
@@ -40,6 +43,9 @@ app.use('/api/sauces', saucesRoutes)
 
 //ici on indique que le chemin /api/auth sera la racine dans user.js du dossier routes
 app.use('/api/auth', userRoutes);
+
+//ici on indique ou piocher/afficher les images
+app.use('/images', express.static(path.join(__dirname, 'images')));
 
 //ici on exporte express pour pouvoir s'en servir dans d'autres fichiers
 module.exports = app;

@@ -44,11 +44,12 @@ exports.login = (req, res, next) => {
                             { userId: user._Id },
                             //2eme argument : la clé d'encodage
                             "voici_le_TOKEN_secret_de_la_MORT_qui_tue",
-                            // 3eme arguement : configuration
+                            // 3eme argument : configuration
                             { expiresIn: '24h' }
                         )
                     })
-                        .catch((error => res.status(500).json({ error })));
                 })
-                .catch(error => res.status(500).json({ error }))
-        };
+                .catch((error => res.status(500).json({ error })));
+        })
+        .catch(error => res.status(500).json({ error }))
+};

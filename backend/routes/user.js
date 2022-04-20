@@ -9,7 +9,7 @@ const userCtrl = require('../controllers/user')
 router.post('/signup', userCtrl.signup);
 
 //la route pour la connexion d'un compte
-router.prototype('/login', userCtrl.login)
+router.post('/login', userCtrl.login)
 
 
 // on exporte le tout
