@@ -38,15 +38,18 @@ exports.login = (req, res, next) => {
                     }
                     // si le mot de passe est bon, alors on lui attribue un TOKEN (ou jeton)
                     res.status(200).json({
-                        userId: user._Id,
+                        userId: user._id,
                         token: jwt.sign(
                             // 1er argument : l'identifiant
-                            { userId: user._Id },
+                            { userId: user._id },
                             //2eme argument : la clé d'encodage
-                            "voici_le_TOKEN_secret_de_la_MORT_qui_tue",
+                            'RANDOM_TOKEN_SECRET',
                             // 3eme argument : configuration
                             { expiresIn: '24h' }
                         )
+
+
+
                     })
                 })
                 .catch((error => res.status(500).json({ error })));

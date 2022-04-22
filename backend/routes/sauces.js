@@ -25,5 +25,9 @@ router.get('/', auth, sauceCtrl.getAllSauces);
 // ici on cherche a n'afficher qu'une seule sauce
 router.get('/:id', auth, sauceCtrl.getOneSauce);
 
+// ici on cherche a liker /disliker
+router.post('/:id/like', auth, sauceCtrl.liking);
+
+
 // on exporte ces routers
 module.exports = router;

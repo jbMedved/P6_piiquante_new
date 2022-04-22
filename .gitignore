@@ -1,2 +1,11 @@
 node_modules
 images
+src
+.angular
+angular.json
+karma.conf.json
+package-lock.json
+package.json
+tsconfig.app.json
+tsconfig.json
+tsconfig.spec.json
